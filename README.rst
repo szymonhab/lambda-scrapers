@@ -3,13 +3,12 @@ Lambda Scrapers
 
 Commands to create package:
 
-.. line-block::
-
+``
     cd in virtualenv site-packages, like cd ~/Envs/lambda-scrapers/lib/python3.6/site-packages/
     zip -r9 ~/python/lambda-scrapers.zip .
     cd in lambda-scrapers project
     zip -g ~/python/lambda-scrapers.zip *.py
-
+``
 
 Upload your package to AWS lambda service.
 
