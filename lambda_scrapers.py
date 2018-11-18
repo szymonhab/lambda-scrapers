@@ -51,6 +51,9 @@ HEADERS = {
     'Pragma': 'no-cache'
 }
 
+PROXIES = {
+    'http': 'http://193.109.239.22:38694'
+}
 
 def send_message(alerts):
     notification_email = os.environ.get('NOTIFY_EMAIL_ADDRESS', None)
@@ -97,7 +100,7 @@ def scrape(to_scrape):
     alerts = []
     for parser_string, url_address in addresses.items():
         print(f'Scraping {parser_string}.')
-        response = requests.get(url_address, headers=HEADERS)
+        response = requests.get(url_address, headers=HEADERS, proxies=PROXIES)
         if 200 <= response.status_code < 300:
             parser = parser_class[parser_string](price_threshold)
             result = parser.parse_content(response.content, parser_string)
